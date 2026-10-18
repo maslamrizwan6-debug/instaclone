@@ -1,0 +1,17 @@
+name: Keep InstaClone awake
+# Visits the website every 10 minutes so the free Render server doesn't fall asleep
+# and the free Supabase database isn't paused for inactivity.
+# The website address is stored in the repository variable SITE_URL
+# (Settings → Secrets and variables → Actions → Variables).
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    if: ${{ vars.SITE_URL != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Visit the website
+        run: curl -fsS --retry 3 --retry-delay 20 --max-time 90 "${{ vars.SITE_URL }}/api/health"
