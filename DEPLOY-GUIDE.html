@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Put InstaClone online: step-by-step guide</title>
+<style>
+  :root{--grad:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);--blue:#0095f6;--muted:#6b7280;--line:#e5e7eb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#111;background:#fafafa;line-height:1.6}
+  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+  header{background:var(--grad);color:#fff;border-radius:18px;padding:30px 28px;margin-bottom:28px}
+  header h1{margin:0 0 6px;font-size:28px}
+  header p{margin:0;opacity:.95}
+  .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 0 28px}
+  .ov{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .ov b{display:block;font-size:15px}
+  .ov span{color:var(--muted);font-size:13px}
+  .part{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-bottom:22px}
+  .part h2{margin:0 0 4px;font-size:21px;display:flex;align-items:center;gap:12px}
+  .num{width:34px;height:34px;border-radius:50%;background:var(--grad);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .time{color:var(--muted);font-size:13px;margin:0 0 14px 46px}
+  ol{padding-left:22px;margin:0}
+  ol li{margin:10px 0}
+  a{color:var(--blue);font-weight:600}
+  code,.btnlike{background:#f3f4f6;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .btnlike{font-family:inherit;font-weight:600;background:#eef6ff;border-color:#cfe5ff;color:#0b4a8b}
+  pre{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:13px;line-height:1.5;margin:10px 0}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;margin:12px 0;font-size:14px}
+  .ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:10px 14px;margin:12px 0;font-size:14px}
+  .warn{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 14px;margin:12px 0;font-size:14px}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f9fafb}
+  .notepad{background:#f8fafc;border:2px dashed #cbd5e1;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}
+  .notepad b{font-family:ui-monospace,Menlo,Consolas,monospace}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>📸 Put InstaClone online for free</h1>
+  <p>Follow these steps once, about 20 minutes in total. At the end you get a permanent link like <b>https://instaclone.onrender.com</b> that works all the time.</p>
+</header>
+
+<div class="overview">
+  <div class="ov"><b>1 · GitHub</b><span>Stores your website's code</span></div>
+  <div class="ov"><b>2 · Supabase</b><span>Database + photo storage</span></div>
+  <div class="ov"><b>3 · Render</b><span>Runs the website and gives you the link</span></div>
+  <div class="ov"><b>4 · Keep awake</b><span>Keeps it fast, 24/7</span></div>
+</div>
+
+<div class="notepad">
+  📝 <strong>Open a notepad on your computer first.</strong> You'll copy 3 values into it along the way:<br>
+  <b>DATABASE_URL</b> &nbsp;·&nbsp; <b>SUPABASE_URL</b> &nbsp;·&nbsp; <b>SUPABASE_SERVICE_KEY</b>
+</div>
+
+<!-- ================================================================ PART 1 -->
+<div class="part">
+  <h2><span class="num">1</span> Upload the code to GitHub</h2>
+  <p class="time">⏱ about 5 minutes</p>
+  <ol>
+    <li><b>Download</b> the file <code>instaclone.zip</code> from this workspace and <b>unzip</b> it on your computer. On Windows: right-click → <i>Extract All</i>. On Mac: double-click it.</li>
+    <li>Go to <a href="https://github.com/signup" target="_blank">github.com/signup</a> and create a free account. Skip this if you already have one.</li>
+    <li>Click the <span class="btnlike">+</span> at the top-right → <span class="btnlike">New repository</span>.</li>
+    <li>Repository name: <code>instaclone</code>. Choose <b>Public</b>. Don't tick any of the other boxes. Click <span class="btnlike">Create repository</span>.
+      <div class="note">💡 <b>Why public?</b> The free "keep awake" robot in step 4 only runs without limits on public repositories. Your passwords and keys are <b>not</b> in the code: they go into Render in step 3. So public is safe.</div>
+    </li>
+    <li>On the next page, click the link <b>"uploading an existing file"</b>.</li>
+    <li>Open the unzipped <code>instaclone</code> folder on your computer. Select <b>everything inside it</b> (Ctrl+A on Windows, Cmd+A on Mac) and <b>drag it</b> onto the GitHub page.</li>
+    <li>Wait until all the files have uploaded, then click <span class="btnlike">Commit changes</span>.</li>
+  </ol>
+  <div class="ok">✅ <b>Check:</b> your repository page should now list <code>public</code>, <code>seed</code>, <code>server.js</code>, <code>package.json</code> and a few more files.</div>
+  <div class="warn">⚠️ <code>server.js</code> and <code>package.json</code> must be at the <b>top level</b> of the repository, not inside an extra folder. If you see only a single <code>instaclone</code> folder, open it on your computer and drag its <b>contents</b> instead.</div>
+</div>
+
+<!-- ================================================================ PART 2 -->
+<div class="part">
+  <h2><span class="num">2</span> Create the free database (Supabase)</h2>
+  <p class="time">⏱ about 5 minutes</p>
+  <ol>
+    <li>Go to <a href="https://supabase.com/dashboard" target="_blank">supabase.com/dashboard</a> → <span class="btnlike">Continue with GitHub</span>. This uses the account you just made.</li>
+    <li>Click <span class="btnlike">New project</span> and fill in:
+      <table>
+        <tr><th>Field</th><th>What to enter</th></tr>
+        <tr><td>Project name</td><td><code>instaclone</code></td></tr>
+        <tr><td>Database password</td><td>Click <b>Generate a password</b>, then <b>copy it into your notepad</b>. You need it in a minute.<br><small>If you type your own password, use <b>only letters and numbers</b>. Symbols like <code>@ # / ? %</code> break the connection link.</small></td></tr>
+        <tr><td>Region</td><td><b>Central EU (Frankfurt)</b>. You'll pick Frankfurt on Render too, so the two are close together and the site stays fast.</td></tr>
+      </table>
+      Then click <span class="btnlike">Create new project</span> and wait 1–2 minutes while it sets up.
+    </li>
+    <li><b>Get DATABASE_URL:</b> click the <span class="btnlike">Connect</span> button at the top of your project page. Find the <b>Session pooler</b> connection string. It looks like this:
+      <pre>postgresql://postgres.abcdefghij:[YOUR-PASSWORD]@aws-0-eu-central-1.pooler.supabase.com:5432/postgres</pre>
+      Copy it into your notepad. Then replace <code>[YOUR-PASSWORD]</code>, <b>including the square brackets</b>, with your database password.
+      <div class="warn">⚠️ Use the <b>Session pooler</b> string, where the address ends in <code>pooler.supabase.com</code>. The "Direct connection" string won't work on Render.</div>
+    </li>
+    <li><b>Get SUPABASE_URL:</b> click <b>Project Settings</b> (⚙️ gear icon at the bottom-left) → <b>Data API</b>. Copy the <b>Project URL</b>, for example <code>https://abcdefghij.supabase.co</code>.</li>
+    <li><b>Get SUPABASE_SERVICE_KEY:</b> in Project Settings → <b>API Keys</b>, find <b>Secret keys</b>. Click to reveal one and copy it. It starts with <code>sb_secret_</code>.
+      <br><small>If you only see a <b>service_role</b> key (a long key starting with <code>eyJ</code>), that works too.</small>
+      <div class="warn">🔒 Keep this key private. Never paste it into GitHub or share it with anyone.</div>
+    </li>
+  </ol>
+  <div class="ok">✅ You <b>don't</b> need to create any tables or storage buckets. The website does that automatically the first time it starts.</div>
+</div>
+
+<!-- ================================================================ PART 3 -->
+<div class="part">
+  <h2><span class="num">3</span> Put the website online (Render)</h2>
+  <p class="time">⏱ about 5 minutes + 3 minutes waiting</p>
+  <ol>
+    <li>Go to <a href="https://dashboard.render.com/register" target="_blank">render.com</a> → sign up with <b>GitHub</b>.</li>
+    <li>Click <span class="btnlike">+ New</span> → <span class="btnlike">Web Service</span> → choose <b>GitHub</b> as the source, then select your <code>instaclone</code> repository.
+      <br><small>Don't see it? Click <b>Configure account</b> / <b>Connect GitHub</b> and give Render access to the repository.</small></li>
+    <li>Fill in the settings:
+      <table>
+        <tr><th>Setting</th><th>Value</th></tr>
+        <tr><td>Name</td><td><code>instaclone</code>. This becomes your link! If the name is taken, try something like <code>instaclone-tz</code>.</td></tr>
+        <tr><td>Region</td><td><b>Frankfurt (EU Central)</b></td></tr>
+        <tr><td>Branch</td><td><code>main</code></td></tr>
+        <tr><td>Language / Runtime</td><td><b>Node</b></td></tr>
+        <tr><td>Build Command</td><td><code>npm install</code></td></tr>
+        <tr><td>Start Command</td><td><code>npm start</code></td></tr>
+        <tr><td>Instance Type</td><td><b>Free</b></td></tr>
+      </table>
+    </li>
+    <li>Scroll down to <b>Environment Variables</b> and add these 3, copied from your notepad:
+      <table>
+        <tr><th>Key (NAME)</th><th>Value</th></tr>
+        <tr><td><code>DATABASE_URL</code></td><td>the Session pooler string, with your password filled in</td></tr>
+        <tr><td><code>SUPABASE_URL</code></td><td>https://abcdefghij.supabase.co</td></tr>
+        <tr><td><code>SUPABASE_SERVICE_KEY</code></td><td>sb_secret_…</td></tr>
+      </table>
+      Type the names exactly as shown, in capital letters, with no spaces before or after.
+    </li>
+    <li>Click <span class="btnlike">Deploy Web Service</span>. Watch the log. After 2–4 minutes you should see:
+      <pre>Created public storage bucket "instaclone-media"
+Seeding demo data (first run)...
+Demo data ready.
+✅ InstaClone running on port 10000 (storage: Supabase)</pre>
+    </li>
+    <li>🎉 <b>Your permanent link</b> is shown at the top of the Render page, for example <b>https://instaclone.onrender.com</b>. Open it, sign up, and share it with friends!</li>
+  </ol>
+</div>
+
+<!-- ================================================================ PART 4 -->
+<div class="part">
+  <h2><span class="num">4</span> Keep it awake 24/7 (recommended)</h2>
+  <p class="time">⏱ about 2 minutes</p>
+  <p>Free Render websites <b>go to sleep after 15 minutes</b> with no visitors. The next visitor then waits about a minute. Supabase also <b>pauses</b> free databases after a week with no activity. A small free robot on GitHub that visits your site every 10 minutes fixes both.</p>
+  <ol>
+    <li>Open your <code>instaclone</code> repository on GitHub → <span class="btnlike">Add file</span> → <span class="btnlike">Create new file</span>.</li>
+    <li>In the file name box, type exactly this. The slashes create folders automatically:
+      <pre>.github/workflows/keep-awake.yml</pre></li>
+    <li>Paste this into the big text box, and <b>change the link</b> on the last line to your own Render link:
+<pre>name: Keep InstaClone awake
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Visit the website
+        run: curl -fsS --retry 3 --retry-delay 20 --max-time 90 "https://instaclone.onrender.com/api/health"</pre></li>
+    <li>Click <span class="btnlike">Commit changes…</span> → <span class="btnlike">Commit changes</span>.</li>
+    <li>Go to the <b>Actions</b> tab. If it asks, click to enable workflows. Then click <b>Keep InstaClone awake</b> → <span class="btnlike">Run workflow</span> to test it. A green ✓ means it works.</li>
+  </ol>
+  <div class="note">💡 One free website running all month uses about 744 of Render's 750 free hours, so staying awake 24/7 fits inside the free plan. If GitHub ever emails you that the scheduled workflow was disabled (this happens after 60 days with no changes to the repository), just click to re-enable it.</div>
+</div>
+
+<!-- ================================================================ TROUBLESHOOTING -->
+<div class="part">
+  <h2><span class="num">?</span> If something goes wrong</h2>
+  <table>
+    <tr><th>You see this in the Render log</th><th>Fix</th></tr>
+    <tr><td><code>DATABASE_URL is not set</code></td><td>The environment variable is missing or misspelled. Render → your service → <b>Environment</b>.</td></tr>
+    <tr><td><code>password authentication failed</code></td><td>The password inside DATABASE_URL is wrong, or the <code>[ ]</code> brackets are still there. You can set a new password in Supabase → Project Settings → Database → <b>Reset database password</b>.</td></tr>
+    <tr><td><code>ENETUNREACH</code> or <code>ENOTFOUND</code></td><td>You used the "Direct connection" string. Use the <b>Session pooler</b> string instead.</td></tr>
+    <tr><td><code>Could not create Supabase storage bucket</code></td><td>SUPABASE_URL or SUPABASE_SERVICE_KEY is wrong. Copy them again, with no extra spaces.</td></tr>
+    <tr><td><code>Cannot find module</code> / build failed</td><td><code>package.json</code> isn't at the top level of the repository. Look at the warning in step 1.</td></tr>
+    <tr><td>The website takes ~1 minute to open</td><td>It was asleep. Set up step 4.</td></tr>
+    <tr><td>Email from Supabase: "project paused"</td><td>Log in to Supabase and click <b>Restore project</b>. Step 4 stops this from happening again.</td></tr>
+  </table>
+  <p>After you change an environment variable, Render restarts the site automatically. In future, any file you edit on GitHub goes live automatically within a few minutes.</p>
+</div>
+
+<div class="part">
+  <h2><span class="num">★</span> Free plan limits</h2>
+  <table>
+    <tr><td>Photos</td><td>1 GB of free storage, roughly 3,000–5,000 photos</td></tr>
+    <tr><td>Database</td><td>500 MB, which is plenty for thousands of users, posts and messages</td></tr>
+    <tr><td>Traffic</td><td>5 GB of photo downloads a month on Supabase. Good for friends and testing. For a big public launch you'd upgrade later.</td></tr>
+  </table>
+</div>
+
+<footer>Made for your InstaClone website · Demo accounts use password <b>password123</b> (e.g. <b>zanzibar_vibes</b>)</footer>
+</div>
+</body>
+</html>
