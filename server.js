@@ -14,9 +14,10 @@ const fs = require('fs');
 types.setTypeParser(20, v => parseInt(v, 10)); // COUNT(*) & BIGINT → JS numbers
 
 const PORT = process.env.PORT || 3000;
-const DATABASE_URL = process.env.DATABASE_URL;
-const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || '';
+const DATABASE_URL = (process.env.DATABASE_URL || '').trim();
+// Accept "https://xyz.supabase.co", "https://xyz.supabase.co/" or even ".../rest/v1/" — keep only the origin
+const SUPABASE_URL = (() => { try { return process.env.SUPABASE_URL ? new URL(process.env.SUPABASE_URL.trim()).origin : ''; } catch { return ''; } })();
+const SUPABASE_KEY = (process.env.SUPABASE_SERVICE_KEY || '').trim();
 const BUCKET = process.env.SUPABASE_BUCKET || 'instaclone-media';
 const USE_CLOUD_STORAGE = !!(SUPABASE_URL && SUPABASE_KEY);
 const UPLOAD_DIR = path.join(__dirname, 'uploads'); // only used when Supabase Storage isn't configured
